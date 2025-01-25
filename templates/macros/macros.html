@@ -16,11 +16,13 @@
 </div>
 {% for id, produkt in (produkty.items()) %}
 {% if id[:2] == kod_skupina %}
-<div class="row samotny-produkt" hx-get=produkt/{{id}}>
+<div class="row samotny-produkt" hx-get=produkt/{{id}} hx-target="#{{id}}">
     <div class="col-1 kod-produktu">{{ id | upper }}</div>
     <div class="col">{{ produkt.nazov }}</div>
     <div class="col-2">{{ produkt.rozmer }}</div>
     <div class="col-2">{{ (produkt.cena / 100) | round(2) }}€</div>
+</div>
+<div id="{{id}}" class="visible" hx-delete="/produkt/{{id}}" hx-swap="delete">
 </div>
 {% endif %}
 {% endfor %}

@@ -49,11 +49,21 @@ class Produkt(SQLModel):
     rozmer: str
     cena: int
     popis: str | None = Field(default=None)
+    farba: list[str] | None = Field(default=None)
     obrazok: Obrazok | None = Field(default=None)
 
 
 def cena_na_centy(cena: str) -> int:
     return int(float(cena.replace(',', '.'))*100)
+
+
+def farba_na_farby(farba: list[str]) -> list[str]:
+    # print(farba)
+    if farba[0] != '' or len(farba) > 1:
+        farby = farba 
+    else:
+        farby = "biela,béžová,zlatá".split(',')
+    return farby
 
 
 def produkty_slovnik(produkty: list[Produkt]) -> dict[str, Produkt]:
@@ -67,13 +77,16 @@ def kodove_skupiny(produkty: dict[str, Produkt]) -> dict[str, str]:
 
 
 def nacitaj_vsetky_produkty(subor: str = 'produkty.csv') -> list[Produkt]:
-    df = pd.read_csv(subor, sep=';', header=0)
+    df = pd.read_csv(subor, sep=';', header=0).fillna('')
+    df['farba'] = df['farba'].str.split(',')
+    # print(df)
     produtky = [Produkt(kod=row['kod_produktu'], 
-                    nazov=row['nazov'], 
-                    rozmer=row['rozmer'], 
-                    cena=cena_na_centy(row['cena']),
-                    popis=row.get('popis')
-                    ) for _, row in df.iterrows()]
+                        nazov=row['nazov'], 
+                        rozmer=row['rozmer'], 
+                        cena=cena_na_centy(row['cena']),
+                        popis=row.get('popis') or None,
+                        farba=farba_na_farby(row.get('farba'))
+                        ) for _, row in df.iterrows()]
     produtky = produkty_slovnik(produtky)
     # pprint(produtky.items())
     return produtky

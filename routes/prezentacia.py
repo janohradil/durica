@@ -43,6 +43,13 @@ async def produkt_info(request: Request, prod_id: str):
                                                       "produkt": produkt})
 
 
+@router_prezentacia.delete("/produkt/{prod_id}", response_class=HTMLResponse)
+async def produkt_info(request: Request, prod_id: str):
+   return "<div class='non-visible'></div>"
+
+
+
+
 @router_prezentacia.get("/portfolio", response_class=HTMLResponse)
 async def portfolio_view(request: Request, current_year: dict = Depends(get_year)):
     """Return the portfolio page."""

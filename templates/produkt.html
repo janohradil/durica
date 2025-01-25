@@ -1,18 +1,30 @@
 <div class="card">
     <div class="row align-items-center">
-        <div class="col-2">
+        <div class="col-3">
             <ul>
                 <li>Kód: <span class="kod-produktu">{{ produkt.kod | upper }}</span></li>
                 <li>Názov: {{produkt.nazov}}</li>
                 <li>Rozmer: {{produkt.rozmer}}</li>
+                {% if produkt.popis %}
+                <li>Popis: {{produkt.popis}}</li>
+                {% endif %}
+                {% if produkt.farba[0] != '' %}
+                <li>Farebné varianty:
+                    <ul>
+                        {% for farba in produkt.farba %}
+                        <li>{{farba}}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
                 <li>Cena za 1 kus: {{produkt.cena / 100}}€</li>
             </ul>
         </div>
         <div class="col">
-            <a href="{{ url_for ('static', path='img/' ~ produkt.kod ~'_bie.jpg') }}">
-                <img src="{{ url_for ('static', path='img/' ~ produkt.kod ~'_bie.jpg') }}"
-                    alt="{{produkt.kod | upper}} {{produkt.nazov}}" ,
-                    title="{{produkt.kod | upper}} {{produkt.nazov}} {{produkt.rozmer}} -  {{produkt.cena}}centov / ks">
+            <a href="{{ url_for ('static', path='img/produkty/' ~ 'vd005' ~'_bez.jpg') }}">
+                <img src="{{ url_for ('static', path='img/produkty/' ~ 'vd005' ~'_bez_z.jpg') }}"
+                    alt="{{produkt.kod | upper }} {{produkt.nazov}}" ,
+                    title="{{produkt.kod | upper}} {{produkt.nazov}} {{produkt.rozmer}} {{produkt.farba}} - {{produkt.cena}}centov / ks">
             </a>
 
         </div>

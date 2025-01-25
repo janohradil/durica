@@ -23,7 +23,7 @@ body {
 }
 
 #navbarSupportedContent a:hover {
-    color: #bbddff;
+    color: #e4ffdf;
     font-size: large;
     padding: 0.4rem;
     transition: font-size 900ms;
@@ -37,7 +37,7 @@ body {
 }
 
 .navbar a:hover {
-    color: #bbddff;
+    color: #e4ffdf;
     transition: 300ms;
 }
 
@@ -304,8 +304,9 @@ footer h5 {
     text-decoration: none;
 }
 
-footer a:hover {
-    color: #bbddff;
+footer a:hover,
+footer a:active {
+    color: #e4ffdf;
     transition: color 300ms;
 }
 
@@ -378,7 +379,7 @@ main {
 main p {
     padding: 0.1rem 1rem;
     margin: 0 0;
-    text-indent: 2rem;
+    /* text-indent: 2rem; */
 }
 
 ul {
@@ -416,4 +417,12 @@ ul {
 
 .logo {
     max-width: 50%;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.not-visible {
+    visibility: hidden;
 }

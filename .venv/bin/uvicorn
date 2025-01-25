@@ -1,4 +1,4 @@
-#!/home/jan/programming/www/hradil/.venv/bin/python
+#!/home/jan/programming/www/durica/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

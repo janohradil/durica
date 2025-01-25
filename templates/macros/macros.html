@@ -1,0 +1,44 @@
+{% macro produkty_tabulka(produkty, kod_skupina) %}
+<!-- <table>
+    <tr>
+        <th>Kód produktu</th>
+        <th>Názov</th>
+        <th>Rozmer</th>
+        <th>Cena za 1 ks</th>
+    </tr>
+    {% for id, produkt in (produkty.items()) %}
+    {% if id[:2] == kod_skupina %}
+    <tr hx-get=produkt/{{id}} hx-target="#detail-produktu-{{kod_skupina}}">
+        <td>{{ id | upper }}</td>
+        <td>{{ produkt.nazov }}</td>
+        <td>{{ produkt.rozmer }}</td>
+        <td>{{ (produkt.cena / 100) | round(2) }}€ / ks</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table> -->
+<div class="row align-items-center zahlavia-tabuliek">
+    <div class="col-1">
+        Kód
+    </div>
+    <div class="col">
+        Názov
+    </div>
+    <div class="col-2">
+        Rozmer
+    </div>
+    <div class="col-2">
+        Cena za jeden kus
+    </div>
+</div>
+{% for id, produkt in (produkty.items()) %}
+{% if id[:2] == kod_skupina %}
+<div class="row" hx-get=produkt/{{id}}>
+    <div class="col-1">{{ id | upper }}</div>
+    <div class="col">{{ produkt.nazov }}</div>
+    <div class="col-2">{{ produkt.rozmer }}</div>
+    <div class="col-2">{{ (produkt.cena / 100) | round(2) }}€</div>
+</div>
+{% endif %}
+{% endfor %}
+{% endmacro %}

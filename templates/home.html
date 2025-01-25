@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% import "macros/macros.html" as macros %}
+
+{% block content %}
+<main class="text-center">
+    <div class="row">
+        <div class="vyrobky">
+            <h1>Vladimír Ďurica – <span id="brand-color">3</span>D DEKOR</h1>
+            <h2>výroba dekoračných nápisov na aranžovanie</h2>
+
+            <h2>Cenová ponuka dekoračných nápisov</h2>
+
+            <h4>Spomienkové dekoračné nápisy - obrázky s dodatočnými informáciami:</h4>
+            <!-- <a href="kod_produktu/vd_001.html"><img src="img/vd_001_bie.jpg" alt="vd_001 spomíname"
+                    title="vd_001 spomíname 12 cm - 0,40€ / ks"></a> -->
+
+            <!-- <p> {{ id}} - {{ produkt }}</p> -->
+            {# {% for id in produkty %} #}
+            {% for kod_skupina in kodove_skupiny %}
+            {# {% if id[:2] == kod_skupina %} #}
+            <h4>{{ kodove_skupiny[kod_skupina] }}: </h4>
+            {{ macros.produkty_tabulka(produkty, kod_skupina) }}
+            <div id="detail-produktu-{{kod_skupina}}">
+                Detail produktu
+            </div>
+            <div>
+                <p>3 základné farebné varianty: biela, hnedá, zlatá (možnosť ďalších farieb na objednávku)</p>
+                <p>pri veľko objemovom odbere zľava 23%</p>
+            </div>
+            {# {% endif %} #}
+            {% endfor %}
+            <br>
+            <br>
+            <div class="card">
+                <p>Objednávky formou emailu poslať na <a
+                        href="mailto:duri.ca.vlado@gmail.com">duri.ca.vlado@gmail.com</a>
+                </p>
+                <p>Uveďte: kód produktu, počet kusov, farbu, vaše kontaktné údaje</p>
+            </div>
+            <!-- <h2>Kto som a čím sa zaoberám</h2> -->
+            <!-- <div id="profile-photo">
+                <a href="{{ url_for ('static', path='work/jan-hradil-2023.jpg') }}">
+                    <img src="{{ url_for ('static', path='work/jan-hradil-2023.jpg') }}" class="float-left"
+                        alt="Ján Hradil" , title="Ján Hradil">
+                </a>
+                <p>
+                    Študoval som na hutníckej fakulte Technickej univerzity v Košicach. Prvé tri roky boli všeobecné v
+                    zmysle, že sme mali bežné predmety ako na podobných fakultách, teda veľa matematiky, chémie, fyziky,
+                    angličtiny a informatiky. V ďalších ročníkoch sme mali pre nás špecifické predmety ako
+                    zlievarenstvo,
+                    tvárnenie, výroba železa a ocele, výroba farebných kovov či materiálové inžinierstvo, ktoré patrilo
+                    k mojim obľúbených predmetom a dosiahol som aj veľmi dobré výsledky na samotnej skúške.
+                </p>
+                <p>
+                    Po škole som šiel pracovať do Českej republiky, kde som pracoval dva roky v oceliarenskom priemysle
+                    priamo v spoločnosti Pilsen Steel, čo patrilo pod bývalú Škodovku v Plzni. Počas krízy v roku 2008
+                    dochádzalo k veľkému prepúšťaniu zamestnancov najmä v priemyselných odvetviach. Dopady sa dotkli aj
+                    mňa samotného. Rozhodol som sa vrátiť domov na Slovensko. Nachádzal som si rôzne brigády v blízkom
+                    okolí.
+                </p>
+            </div> -->
+            <!-- <h3>Začiatky programovania</h3>
+            <p>
+                Ako som už uviedol vyššie, v odbore som síce pracoval niekoľko rokov, ale rozhodol som sa
+                rekvalifikovať na oblasť IT. Začal som pracovať na projektoch ako úprava
+                fotiek a tvorba plagátov. Keďže som používal Linux už od ukončenia
+                vysokej školy, čoraz viac som začal využívať príkazový riadok a s tým
+                spojené bashové skripty. Postupom času som sa dostal k programovacím jazykom
+                Perl a Python, ktoré ma zaujali natoľko, že som si skúšal nové projekty
+                vypracovávať v týchto jazykoch.
+            </p>
+            <h3>Výzvy</h3>
+            <p>Pracoval som vo viacerých zamestnaniach, kde sa raz vyžadovali programátorské
+                zručnosti, inde zas bol dôraz na dátové analýzy. Dátové analýzy ma zaujali natoľko,
+                že som posledné obdobie venoval pozornosť a energiu práve na túto oblasť.
+                V portfóliu možete nájsť môj kód ohľadom vyhodnotenia šachových turnajov či
+                spôsob, ako každý rok získavať podklady na aktualizáciu zjednodušeného
+                rozpisu cestovného poriadku pre našu obec alebo susedné obce. Pred rokom 2022
+                ešte neboli možnosti využívania umelej inteligencie pri projektoch, ako
+                väčšina, som sa v prípade problémov obracal na google a stackoverflow.
+            </p>
+            <h3>Súčasnosť</h3>
+            <p>Vzhľadom na všadeprítomné webové aplikácie som nemohol stáť bokom, rozhodol som sa
+                chopiť sa príležitosti a využiť svoje skúsenosti s tvorbou webu aj pre svojich
+                kamarátov či známich. Technológie a nástroje, ktoré používam sú väčšinou Drupal,
+                FastAPI a Django. Ako databázové systémy využívam z relačných MySQL, PostgreSQL
+                a SQLite3, z nerelačných MongoDB. Dnes je už pomerne jednoduché nezasektnúť sa
+                vďaka integrácii nástrojov AI, ktoré podstatne zjednodušujú proces vývoja.
+            </p>
+            <h3>Záujmy</h3>
+            <p>Vo voľnom čase rád pracujem v záhrade, chodievam so psom na prechádzky, otužujem počas jesene, zimy a
+                jari, plávam, chodievam fotiť na didinské akcie, pričom zvyknem pomôcť s varením guľášu alebo inými
+                aktivitami. Turistika a cyklistika tiež patrí medzi moje obľúbené aktivity.
+            </p> -->
+            <!-- <div class="image-grid" id="profile-photos">
+                <a href="{{ url_for ('static', path='work/20230808_174844x.jpg') }}">
+                    <img src="{{ url_for ('static', path='work/20230808_174844x.jpg') }}" alt="Ján Hradil" ,
+                        title="Ján Hradil - pútnické miesto Mariánka">
+                </a>
+                <a href="{{ url_for ('static', path='work/20240414_170424c.jpg') }}">
+                    <img src="{{ url_for ('static', path='work/20240414_170424c.jpg') }}" alt="Ján Hradil" ,
+                        title="Ján Hradil - profilová fotka">
+                </a>
+
+                <a href="{{ url_for ('static', path='work/sach-jan-hradil-01.png') }}">
+                    <img src="{{ url_for ('static', path='work/sach-jan-hradil-01.png') }}" alt="Ján Hradil" ,
+                        title="Ján Hradil - v šachovej nálade v 4. lige">
+                </a>
+
+                </a>
+                </a>
+                <a href="{{ url_for ('static', path='work/20241109_145411c.jpg') }}">
+                    <img src="{{ url_for ('static', path='work/20241109_145411c.jpg') }}" alt="Ján Hradil" ,
+                        title="Ján Hradil - medzi ocenenými avšak mimo prvých miest">
+                </a>
+                <a href="{{ url_for ('static', path='work/20240710_103328c.jpg') }}">
+                    <img src="{{ url_for ('static', path='work/20240710_103328c.jpg') }}" alt="Ján Hradil" ,
+                        title="Ján Hradil - Bratislava pri parlamente">
+                </a>
+            </div> -->
+        </div>
+
+        <!-- <aside class="col">
+            <div class="projekty">
+                <h2>Prezentácia</h2>
+                <div x-data="{ open: false, fetchProjekty }">
+                    <button class="btn btn-primary m-4" @click="open = !open"
+                        x-text="open ? 'Skry projekty' : 'Zobraz projekty'"></button>
+
+                    <div x-show="open">
+                        <div x-data="fetchProjekty()">
+                            <div x-html="projekty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside> -->
+    </div>
+
+
+
+</main>
+
+<script>
+    async function fetchProjekty() {
+        try {
+            const response = await fetch('/portfolio_short');
+            this.projekty = await response.text();
+            console.log(this.projekty);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
+
+{% endblock %}

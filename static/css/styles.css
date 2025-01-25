@@ -142,6 +142,8 @@ table {
 
 .card {
     background-color: #ecfceb;
+    border: none;
+    margin-bottom: 1rem;
 }
 
 .card-title {
@@ -149,9 +151,8 @@ table {
     color: #34495e;
 }
 
-.card {
-    border: none;
-    margin-bottom: 1rem;
+.card li .kod-produktu {
+    font-weight: 700;
 }
 
 .float-left {
@@ -406,4 +407,13 @@ ul {
 .transition-enter-end {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+
+.kod-produktu {
+    font-family: Helvetica, sans-serif, Arial;
+    font-size: smaller;
+}
+
+.logo {
+    max-width: 50%;
 }

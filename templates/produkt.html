@@ -2,16 +2,17 @@
     <div class="row align-items-center">
         <div class="col-2">
             <ul>
-                <li>Kód: {{ produkt.kod | upper }}</li>
+                <li>Kód: <span class="kod-produktu">{{ produkt.kod | upper }}</span></li>
                 <li>Názov: {{produkt.nazov}}</li>
                 <li>Rozmer: {{produkt.rozmer}}</li>
                 <li>Cena za 1 kus: {{produkt.cena / 100}}€</li>
             </ul>
         </div>
         <div class="col">
-            <a href="{{ url_for ('static', path='img/vd_001_bie.jpg') }}">
-                <img src="{{ url_for ('static', path='img/vd_001_bie.jpg') }}" alt="vd_001 spomíname" ,
-                    title="vd_001 spomíname 12 cm - 0,40€ / ks">
+            <a href="{{ url_for ('static', path='img/' ~ produkt.kod ~'_bie.jpg') }}">
+                <img src="{{ url_for ('static', path='img/' ~ produkt.kod ~'_bie.jpg') }}"
+                    alt="{{produkt.kod | upper}} {{produkt.nazov}}" ,
+                    title="{{produkt.kod | upper}} {{produkt.nazov}} {{produkt.rozmer}} -  {{produkt.cena}}centov / ks">
             </a>
 
         </div>

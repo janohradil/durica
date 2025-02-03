@@ -1,38 +1,38 @@
-kod_produktu,nazov,rozmer,cena,popis
-vd001,Spomíname,12 cm,"0,40",spomíname
-vd002,Spomíname,17 cm,"0,65",
-vd003,S láskou spomíname anjel,12 cm,"0,75",
-vd004,Srdce s láskou spomíname,11 cm,"1,05",
-vd005,S láskou spomíname list + srdce,15 cm,"1,35",
-vd006,Kríž spomíname,15 cm,"1,15",
-vd007,Odpočívaj v pokoji,12 cm,"0,80",
-vd008,Kríž spomíname malý,10 cm,"0,55",
-vd009,Chýbaš nám,12 cm,"0,75",
-vd010,Chýbate nám,12 cm,"0,75",
-vd011,Spomíname ceduľka tip 1,12 cm,"0,80",
-vd012,Spomíname ceduľka tip 2,10 cm,"0,75",
-vd013,Spomíname ceduľka tip 3,12 cm,"0,85",
-cl001,Vitajte,16 cm,"0,90",
-cl002,Vitajte,15 cm,"0,50",
-cl003,Domov,19 cm,"0,80",
-cl004,Domov srdiečka,16 cm,"0,70",
-cl005,Sladký domov,11x10 cm,"1,10",
-cl006,Náš domov,16 cm,"0,75",
-cl007,Šťastný domov,17 cm,"0,90",
-cl008,Milujem ťa,15 cm,"0,60",
-cl009,Všetko najlepšie,11 cm,"0,65",
-cl010,Všetko najlepšie zápich,15x11 cm,"1,30",
-cl011,Narodeninové čísla,7x9 cm,"0,90",
-cl012,Srdce ľúbim ťa,10x8 cm,"1,05",
-vn001,Čarovné Vianoce,16 cm,"0,85",
-vn002,Rozprávkové Vianoce,17 cm,"0,75",
-vn003,Kúzelné Vianoce,14x5 cm,"0,75",
-vn004,Veselé Vianoce,18 cm,"1,80",
-vn005,Stromček,13 cm,"4,70",
-vn006,Vločka,8x8 cm,"0,45",
-vn007,Trpaslík,8 cm,"0,90",
-vn008,Jeleň guľa,8 cm,"0,75",
-vn009,Anjel guľa,8 cm,"0,75",
-vn010,Anjel,7x6 cm,"0,60",
-vn011,Anjel trumpeta,7x7 cm,"0,60",
-vn012,Snehuliak,10x8 cm,"1,10",
+kod_produktu,nazov,rozmer,cena,popis,special_kod
+vd001,Spomíname,12 cm,"0,40",spomíname,c
+vd002,Spomíname,17 cm,"0,65",,c
+vd003,S láskou spomíname anjel,12 cm,"0,75",,c
+vd004,Srdce s láskou spomíname,11 cm,"1,05",,c
+vd005,S láskou spomíname list + srdce,15 cm,"1,35",,c
+vd006,Kríž spomíname,15 cm,"1,15",,c
+vd007,Odpočívaj v pokoji,12 cm,"0,80",,c
+vd008,Kríž spomíname malý,10 cm,"0,55",,c
+vd009,Chýbaš nám,12 cm,"0,75",,c
+vd010,Chýbate nám,12 cm,"0,75",,c
+vd011,Spomíname ceduľka tip 1,12 cm,"0,80",,c
+vd012,Spomíname ceduľka tip 2,10 cm,"0,75",,c
+vd013,Spomíname ceduľka tip 3,12 cm,"0,85",,c
+cl001,Vitajte,16 cm,"0,90",,c
+cl002,Vitajte,15 cm,"0,50",,c
+cl003,Domov,19 cm,"0,80",,c
+cl004,Domov srdiečka,16 cm,"0,70",,c
+cl005,Sladký domov,11x10 cm,"1,10",,c
+cl006,Náš domov,16 cm,"0,75",,c
+cl007,Šťastný domov,17 cm,"0,90",,c
+cl008,Milujem ťa,15 cm,"0,60",,c
+cl009,Všetko najlepšie,11 cm,"0,65",,c
+cl010,Všetko najlepšie zápich,15x11 cm,"1,30",,c
+cl011,Narodeninové čísla,7x9 cm,"0,90",,c
+cl012,Srdce ľúbim ťa,10x8 cm,"1,05",,c
+vn001,Čarovné Vianoce,16 cm,"0,85",,c
+vn002,Rozprávkové Vianoce,17 cm,"0,75",,c
+vn003,Kúzelné Vianoce,14x5 cm,"0,75",,c
+vn004,Veselé Vianoce,18 cm,"1,80",,c
+vn005,Stromček,13 cm,"4,70",,s
+vn006,Vločka,8x8 cm,"0,45",,s
+vn007,Trpaslík,8 cm,"0,90",,s
+vn008,Jeleň guľa,8 cm,"0,75",,s
+vn009,Anjel guľa,8 cm,"0,75",,s
+vn010,Anjel,7x6 cm,"0,60",,s
+vn011,Anjel trumpeta,7x7 cm,"0,60",,s
+vn012,Snehuliak,10x8 cm,"1,10",,s

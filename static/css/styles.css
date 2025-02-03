@@ -436,7 +436,7 @@ ul {
     position: relative;
     top: 4rem;
     left: 2rem;
-    max-width: 130px;
+    max-width: 160px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
 }
@@ -445,7 +445,7 @@ ul {
     position: relative;
     top: 4rem;
     left: 2rem;
-    max-width: 130px;
+    max-width: 160px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     z-index: 9999;

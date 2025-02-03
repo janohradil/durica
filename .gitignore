@@ -3,7 +3,11 @@
 favicon.ico
 .secrets
 .env
-.venv/
+.venv
+.venv/*
+.python-version
 .idea/
 */work/bkp/
 static/img/software_graphiscs.svg
+utils/.ipynb_checkpoints/
+uv.lock

@@ -15,7 +15,7 @@
     </div>
 </div>
 {% for id, produkt in (produkty.items()) %}
-{% if id[:2] == kod_skupina %}
+{% if id[:2] == kod_skupina and produkt.special_kod == 'c' %}
 <div class="row samotny-produkt" hx-get=produkt/{{id}} hx-target="#{{id}}">
     <div class="col-1 kod-produktu">{{ id | upper }}</div>
     <div class="col">{{ produkt.nazov }}</div>
@@ -26,4 +26,48 @@
 </div>
 {% endif %}
 {% endfor %}
+{% endmacro %}
+
+
+{% macro produkty_tabulka_special(produkty) %}
+
+<div class="row align-items-center zahlavia-tabuliek">
+    <div class="col-1">
+        Kód
+    </div>
+    <div class="col">
+        Názov
+    </div>
+    <div class="col-2">
+        Rozmer
+    </div>
+    <div class="col-2">
+        Cena za jeden kus
+    </div>
+</div>
+{% for id, produkt in (produkty.items()) %}
+{% if produkt.special_kod == 's' %}
+<div class="row samotny-produkt" hx-get=produkt/{{id}} hx-target="#{{id}}">
+    <div class="col-1 kod-produktu">{{ id | upper }}</div>
+    <div class="col">{{ produkt.nazov }}</div>
+    <div class="col-2">{{ produkt.rozmer }}</div>
+    <div class="col-2">{{ (produkt.cena / 100) | round(2) }}€</div>
+</div>
+<div id="{{id}}" class="visible">
+</div>
+{% endif %}
+{% endfor %}
+{% endmacro %}
+
+
+{% macro zlavy() %}
+<div class="farby-zlavy">
+    <p>3 základné farebné varianty: biela, hnedá, zlatá (možnosť ďalších farieb na objednávku)</p>
+    <p>pri veľko objemovom odbere zľava minimálne:</p>
+    <ul>
+        <li>100 ks / zľava 10%</li>
+        <li>200 ks / zľava 15%</li>
+        <li>250 ks / zľava 20%</li>
+    </ul>
+</div>
 {% endmacro %}

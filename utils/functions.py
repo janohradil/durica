@@ -68,6 +68,7 @@ class Produkt(SQLModel):
     rozmer: str
     cena: int
     popis: str | None = Field(default=None),
+    special_kod: str | None = Field(default=None),
     farby: list[str] | None = Field(default=None),
     # obrazky_orig: list[str] | None = Field(default=None),
     obrazky_male: list[str] | None = Field(default=None)
@@ -106,6 +107,7 @@ def nacitaj_vsetky_produkty(subor: str = 'produkty.csv') -> list[Produkt]:
                         rozmer=row['rozmer'],
                         cena=cena_na_centy(row['cena']),
                         popis=row.get('popis') or None,
+                        special_kod=row.get('special_kod') or None,
                         farby = [farba.name for farba in get_image_colors(kod_produktu=row['kod_produktu'])],
                         # obrazky_orig = [f'static/img/produkty/{row["kod_produktu"]}_{farba}.jpg' for farba in get_image_colors(kod_produktu=row['kod_produktu'])],
                         obrazky_male = [f'img/produkty/{row["kod_produktu"]}_{farba.value}_z.jpg' 

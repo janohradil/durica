@@ -8,8 +8,10 @@
         <div class="vyrobky">
             <h1>Vladimír Ďurica – <span id="brand-color">3</span>D DEKOR</h1>
             <h2>výroba dekoračných nápisov na aranžovanie</h2>
-            <img src="{{ url_for ('static', path='img/logo_vd.svg') }}" alt="Logo Vladimír Ďurica – 3D DEKOR"
-                title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+            <a href="/">
+                <img src="{{ url_for ('static', path='img/logo_vd.svg') }}" alt="Logo Vladimír Ďurica – 3D DEKOR"
+                    title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+            </a>
             <h2>Cenová ponuka dekoračných nápisov</h2>
 
             {% for kod_skupina in kodove_skupiny %}
@@ -17,16 +19,13 @@
             <div class="tabulka-vyrobkov">
                 {{ macros.produkty_tabulka(produkty, kod_skupina) }}
             </div>
-            <div class="farby-zlavy">
-                <p>3 základné farebné varianty: biela, hnedá, zlatá (možnosť ďalších farieb na objednávku)</p>
-                <p>pri veľko objemovom odbere zľava minimálne:</p>
-                <ul>
-                    <li>100 ks / zľava 10%</li>
-                    <li>200 ks / zľava 15%</li>
-                    <li>250 ks / zľava 20%</li>
-                </ul>
-            </div>
+            {{ macros.zlavy() }}
             {% endfor %}
+            <h4>Špeciálna sezónna ponuka: </h4>
+            <div class="tabulka-vyrobkov">
+                {{ macros.produkty_tabulka_special(produkty) }}
+            </div>
+            {{ macros.zlavy() }}
             <br>
             <br>
             <div class="card">

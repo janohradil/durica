@@ -1,5 +1,5 @@
 # Use official Python image
-FROM python:slim-bullseye
+FROM python:alpine
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -10,7 +10,12 @@ WORKDIR /app
 
 # Copy dependencies and install
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install uv; uv init; uv pip install --system -r requirements.txt
+# RUN uv init
+# COPY pyproject.toml .
+# RUN uv sync
 
 # Copy the application code
 COPY . .

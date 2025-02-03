@@ -22,7 +22,7 @@
     <div class="col-2">{{ produkt.rozmer }}</div>
     <div class="col-2">{{ (produkt.cena / 100) | round(2) }}€</div>
 </div>
-<div id="{{id}}" class="visible" hx-delete="/produkt/{{id}}" hx-swap="delete">
+<div id="{{id}}" class="visible">
 </div>
 {% endif %}
 {% endfor %}

@@ -12,12 +12,35 @@ def get_year():
     current_year = datetime.now().year
     return {"year": current_year}
 
-def get_image_paths(image_dir: str, exclude_substr: list[str]=['orig', 'diela', 'tools.png', '.ico']):
+
+def get_color_name(color_code: str):
+    from enum import Enum
+
+    class Color(Enum):
+        biela   = 'bie'
+        hnedá   = 'hne'
+        béžová  = 'bez'
+        zlatá   = 'zla'
+        modrá   = 'mod'
+        fialová = 'fia'
+        zelená  = 'zel'
+        ružová  = 'ruz'
+
+    try:
+        return Color(color_code)
+    except ValueError:
+       return Color.biela
+
+def get_image_colors(kod_produktu: str,
+                     image_dir: str = 'static/img/produkty',
+                     exclude_substr: list[str]=['orig', 'diela', 'tools.png', '.ico', '_z.']
+                     ) -> list[str]:
     # List image file paths
     images = os.listdir(image_dir)
     cond = lambda img: not any(substr in img for substr in exclude_substr)
-    image_paths = [f"/static/img/{img}" for img in images if cond(img)]
-    return image_paths
+    image_colors = [get_color_name(f"{img[6:9]}") for img in images if cond(img) and kod_produktu in img]
+    # print(image_colors)
+    return image_colors
 
 
 def slugify(value, allow_unicode=False):
@@ -38,19 +61,16 @@ def slugify(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 
-class Obrazok(SQLModel):
-    name: str
-    path: str
-
 
 class Produkt(SQLModel):
     kod: str
     nazov: str
     rozmer: str
     cena: int
-    popis: str | None = Field(default=None)
-    farba: list[str] | None = Field(default=None)
-    obrazok: Obrazok | None = Field(default=None)
+    popis: str | None = Field(default=None),
+    farby: list[str] | None = Field(default=None),
+    # obrazky_orig: list[str] | None = Field(default=None),
+    obrazky_male: list[str] | None = Field(default=None)
 
 
 def cena_na_centy(cena: str) -> int:
@@ -60,7 +80,7 @@ def cena_na_centy(cena: str) -> int:
 def farba_na_farby(farba: list[str]) -> list[str]:
     # print(farba)
     if farba[0] != '' or len(farba) > 1:
-        farby = farba 
+        farby = farba
     else:
         farby = "biela,béžová,zlatá".split(',')
     return farby
@@ -77,15 +97,19 @@ def kodove_skupiny(produkty: dict[str, Produkt]) -> dict[str, str]:
 
 
 def nacitaj_vsetky_produkty(subor: str = 'produkty.csv') -> list[Produkt]:
-    df = pd.read_csv(subor, sep=';', header=0).fillna('')
-    df['farba'] = df['farba'].str.split(',')
+    df = pd.read_csv(subor, sep=',', header=0).fillna('')
+    # df['farba'] = df['farba'].str.split(',')
     # print(df)
-    produtky = [Produkt(kod=row['kod_produktu'], 
-                        nazov=row['nazov'], 
-                        rozmer=row['rozmer'], 
+    # print(obrazky)
+    produtky = [Produkt(kod=row['kod_produktu'],
+                        nazov=row['nazov'],
+                        rozmer=row['rozmer'],
                         cena=cena_na_centy(row['cena']),
                         popis=row.get('popis') or None,
-                        farba=farba_na_farby(row.get('farba'))
+                        farby = [farba.name for farba in get_image_colors(kod_produktu=row['kod_produktu'])],
+                        # obrazky_orig = [f'static/img/produkty/{row["kod_produktu"]}_{farba}.jpg' for farba in get_image_colors(kod_produktu=row['kod_produktu'])],
+                        obrazky_male = [f'img/produkty/{row["kod_produktu"]}_{farba.value}_z.jpg' 
+                                        for farba in get_image_colors(kod_produktu=row['kod_produktu'])]
                         ) for _, row in df.iterrows()]
     produtky = produkty_slovnik(produtky)
     # pprint(produtky.items())

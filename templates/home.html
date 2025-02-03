@@ -17,9 +17,14 @@
             <div class="tabulka-vyrobkov">
                 {{ macros.produkty_tabulka(produkty, kod_skupina) }}
             </div>
-            <div>
+            <div class="farby-zlavy">
                 <p>3 základné farebné varianty: biela, hnedá, zlatá (možnosť ďalších farieb na objednávku)</p>
-                <p>pri veľko objemovom odbere zľava 23%</p>
+                <p>pri veľko objemovom odbere zľava minimálne:</p>
+                <ul>
+                    <li>100 ks / zľava 10%</li>
+                    <li>200 ks / zľava 15%</li>
+                    <li>250 ks / zľava 20%</li>
+                </ul>
             </div>
             {% endfor %}
             <br>

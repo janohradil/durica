@@ -1,15 +1,15 @@
 from dataclasses import asdict
 import os
 import shutil
-from fastapi import APIRouter, File, Form, Request, Depends, UploadFile
-from fastapi.responses import HTMLResponse
+from fastapi import APIRouter, File, Form, HTTPException, Request, Depends, UploadFile
+from fastapi.responses import HTMLResponse, FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from routes.route import router
 from config.database import client, db, collection_name
 from schema.schemas import list_serial, individual_serial_odpoved, individual_serial_portfolio
 from datetime import datetime
-from utils.functions import get_year, get_image_paths, slugify, nacitaj_vsetky_produkty, kodove_skupiny
+from utils.functions import get_year, get_image_colors, slugify, nacitaj_vsetky_produkty, kodove_skupiny
 
 router_prezentacia = APIRouter(tags=["prezentacia"])
 
@@ -49,6 +49,28 @@ async def produkt_info(request: Request, prod_id: str):
 
 
 
+@router_prezentacia.get("/obrazok/{prod}", response_class=HTMLResponse)
+async def obrazok(request: Request, prod: str):
+    # Construct the full path to the image
+    file_path = f"static/img/produkty/{prod}"
+    product = {}
+    product['id'] = file_path.rsplit("/", 1)[1]
+    product['obrazok'] = file_path
+    # print(product_id)
+    # Check if the file exists
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Image not found")
+
+    # Determine the media type based on the file extension
+    _, ext = os.path.splitext(prod)
+    media_type = "image/jpeg" if ext.lower() == ".jpg" or ext.lower() == ".jpeg" else "image/png" if ext.lower() == ".png" else "image/gif" if ext.lower() == ".gif" else "application/octet-stream"
+    
+    return templates.TemplateResponse("obrazok.html", {"request": request, "product": product})
+
+
+@router_prezentacia.delete("/obrazok/{prod}", response_class=HTMLResponse)
+async def obrazok(request: Request, prod: str):
+    return "<div class='non-visible'></div>"
 
 @router_prezentacia.get("/portfolio", response_class=HTMLResponse)
 async def portfolio_view(request: Request, current_year: dict = Depends(get_year)):
@@ -117,7 +139,7 @@ async def kontakt(fname: str = Form(...), lname: str = Form(...), phone: str = F
 async def galeria(request: Request):
     # List image file paths
     images = os.listdir(IMAGE_DIR)
-    image_paths = get_image_paths(image_dir=IMAGE_DIR)
+    image_paths = get_image_colors(image_dir=IMAGE_DIR)
     image_paths_carousel = [img for img in image_paths if '_small' not in img]
     print(image_paths_carousel)
     return templates.TemplateResponse("galeria.html", {"request": request, "images": image_paths, "images_carousel": image_paths_carousel})
@@ -125,7 +147,7 @@ async def galeria(request: Request):
 @router_prezentacia.get("/galeria/items", response_class=HTMLResponse)
 async def gallery_items(request: Request):
     images = os.listdir(IMAGE_DIR)
-    image_paths = get_image_paths(image_dir=IMAGE_DIR)
+    image_paths = get_image_colors(image_dir=IMAGE_DIR)
     image_paths_carousel = [img for img in image_paths if '_small' not in img]
     # print(image_paths_carousel)
     return templates.TemplateResponse("partials/gallery_items.html", {"request": request, "images": image_paths})

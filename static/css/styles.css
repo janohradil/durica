@@ -141,7 +141,7 @@ table {
 }
 
 .card {
-    background-color: #ecfceb;
+    background-color: #f9fff9;
     border: none;
     margin-bottom: 1rem;
 }
@@ -186,7 +186,8 @@ img {
 
 .card img {
     object-fit: cover;
-    margin: 0;
+    /* max-width: 100%; */
+    padding: 0.1rem .8rem;
 }
 
 .card-img-top {
@@ -382,6 +383,10 @@ main p {
     /* text-indent: 2rem; */
 }
 
+.farby-zlavy {
+    padding-top: 1.5rem;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -425,4 +430,23 @@ ul {
 
 .not-visible {
     visibility: hidden;
+}
+
+.zvacsi-obrazok {
+    position: relative;
+    top: 4rem;
+    left: 2rem;
+    max-width: 130px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.skry-obrazok {
+    position: relative;
+    top: 4rem;
+    left: 2rem;
+    max-width: 130px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 9999;
 }

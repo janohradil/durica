@@ -209,7 +209,7 @@ img {
 }
 
 .detail-img img {
-    width: 90%;
+    width: 98%;
 }
 
 #profile-photo img {
@@ -472,6 +472,12 @@ ul {
     visibility: hidden;
 }
 
+.samotny-produkt:hover {
+    cursor: pointer;
+    color: rgb(6, 94, 3);
+    font-weight: 900;
+}
+
 .zvacsi-obrazok {
     position: relative;
     top: 4rem;
@@ -488,4 +494,34 @@ ul {
     max-width: 160px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+}
+
+.social_media>ul {
+    max-width: 200px;
+}
+
+.social_media>ul>li {
+    display: inline;
+}
+
+.social_media>ul>li>a>img {
+    width: 50px;
+}
+
+.loga {
+    display: inline;
+}
+
+.loga>a>img {
+    max-width: 25%;
+}
+
+#hlavne-logo img {
+    margin: 4rem;
+    max-width: 30%;
+}
+
+#karta_soc_med {
+    max-width: 380px;
+    margin: auto;
 }

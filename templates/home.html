@@ -8,10 +8,25 @@
         <div class="vyrobky">
             <h1>Vladimír Ďurica – <span id="brand-color">3</span>D DEKOR</h1>
             <h2>výroba dekoračných nápisov na aranžovanie</h2>
-            <a href="/">
-                <img src="{{ url_for ('static', path='img/logo_vd.svg') }}" alt="Logo Vladimír Ďurica – 3D DEKOR"
-                    title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
-            </a>
+            <div class="loga">
+                <a href="/">
+                    <img src="{{ url_for ('static', path='img/cl001_bie_z.jpg') }}"
+                        alt="Logo Vladimír Ďurica – 3D DEKOR" title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+                </a>
+                <a id="hlavne-logo" href="/">
+                    <img src="{{ url_for ('static', path='img/logo_vd.svg') }}" alt="Logo Vladimír Ďurica – 3D DEKOR"
+                        title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+                </a>
+                <a href="/">
+                    <img src="{{ url_for ('static', path='img/cl005_mod_z.jpg') }}"
+                        alt="Logo Vladimír Ďurica – 3D DEKOR" title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+                </a>
+            </div>
+            <h2>Ako sa orientovať v cenníku</h2>
+            <p>V cenníku stačí kliknúť myšou / ťuknúť palcom na akýkoľvek riadok s kódom produktu a následne sa zobrazí
+                náhľad produktu v rôznych farebných prevedeniach. Samozrejmosťou je možnosť zväčšenia obrázka na väčší
+                vo
+                vyššom rozlíšení.</p>
             <h2>Cenová ponuka dekoračných nápisov</h2>
 
             {% for kod_skupina in kodove_skupiny %}

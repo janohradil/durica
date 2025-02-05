@@ -1,3 +1,5 @@
+{% import "macros/macros.html" as macros %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +73,7 @@
                     </ul>
                 </address>
                 <div class="col-auto text-end" id="copyright">
+                    {{ macros.social_media() }}
                     <p><a href="http://hradil.home.sk" target="_blank" rel="noopener noreferrer">&copy;</a> {{ year }}
                         Vladimír Ďurica. Všetky práva vyhradené.</p>
                 </div>

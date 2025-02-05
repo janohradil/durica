@@ -45,7 +45,7 @@ async def produkt_info(request: Request, prod_id: str):
 
 @router_prezentacia.delete("/produkt/{prod_id}", response_class=HTMLResponse)
 async def produkt_info(request: Request, prod_id: str):
-   return "<div class='non-visible'></div>"
+   return ""
 
 
 

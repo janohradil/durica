@@ -47,15 +47,16 @@ h1 {
     font-size: 40px;
 }
 
+h1,
 h2 {
-    color: #354f69;
+    color: #0d4608;
 }
 
 h3,
 h4,
 h5,
 h6 {
-    color: #325272;
+    color: #174e17;
 }
 
 h1,
@@ -140,10 +141,41 @@ table {
     margin-top: 0;
 }
 
+/* ol {
+    list-style-position: inside;
+} */
+
+ol li::marker {
+    font-size: 1.5rem
+}
+
+.jednotlive-vyhody li h3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.jednotlive-vyhody ul {
+    margin-bottom: 2rem;
+}
+
+.sumarizacia-vyhod p {
+    padding: 2rem;
+    font-size: large;
+}
+
+.sumarizacia-vyhod li {
+    padding: 0.5rem;
+    font-size: larger;
+}
+
 .card {
     background-color: #f9fff9;
     border: none;
     margin-bottom: 1rem;
+}
+
+.card-odd {
+    background-color: #f2faf2;
 }
 
 .card-title {
@@ -384,7 +416,15 @@ main p {
 }
 
 .farby-zlavy {
-    padding-top: 1.5rem;
+    padding-top: .5rem;
+}
+
+main .farby-zlavy h4:first-of-type {
+    margin-top: 0.5rem;
+}
+
+.farby-zlavy button {
+    margin: auto;
 }
 
 ul {
@@ -448,5 +488,4 @@ ul {
     max-width: 160px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    z-index: 9999;
 }

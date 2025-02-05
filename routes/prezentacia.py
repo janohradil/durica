@@ -73,9 +73,24 @@ async def obrazok(request: Request, prod: str):
     return "<div class='non-visible'></div>"
 
 
+@router_prezentacia.get('/vyroba', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    return templates.TemplateResponse("vyroba.html", {"request": request})
+
+
 @router_prezentacia.get("/zlavy", response_class=HTMLResponse)
 async def zlavy_view(request: Request):
     return templates.TemplateResponse("zlavy.html", {"request": request})
+
+
+@router_prezentacia.delete("/zlavy", response_class=HTMLResponse)
+async def obrazok(request: Request):
+    return templates.TemplateResponse("button_zlavy.html", {"request": request})
+
+
+@router_prezentacia.get("/pouzitie", response_class=HTMLResponse)
+async def zlavy_view(request: Request):
+    return templates.TemplateResponse("pouzitie.html", {"request": request})
 
 
 @router_prezentacia.get("/portfolio", response_class=HTMLResponse)

@@ -19,15 +19,15 @@
             <div class="tabulka-vyrobkov">
                 {{ macros.produkty_tabulka(produkty, kod_skupina) }}
             </div>
-            <button class="btn btn-success mt-4" hx-get="/zlavy" hx-swap="outerHTML">Bližšie informácie o
-                zľavách</button>
+            <button class="btn btn-success mt-4" id="{{kod_skupina}}" hx-get="/zlavy" hx-swap="outerHTML">Bližšie
+                informácie o farbách, veľkostiach a zľavách</button>
             {% endfor %}
             <h4>Špeciálna sezónna ponuka: </h4>
             <div class="tabulka-vyrobkov">
                 {{ macros.produkty_tabulka_special(produkty) }}
             </div>
-            <button class="btn btn-success mt-4" hx-get="/zlavy" hx-swap="outerHTML">Bližšie informácie o
-                zľavách</button>
+            <button class="btn btn-success mt-4" id="{{kod_skupina}}" hx-get="/zlavy" hx-swap="outerHTML">Bližšie
+                informácie o farbách, veľkostiach a zľavách</button>
             <br>
             <br>
             <div class="card">

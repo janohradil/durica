@@ -78,6 +78,16 @@ async def info_o_vyrobe(request: Request):
     return templates.TemplateResponse("vyroba.html", {"request": request})
 
 
+@router_prezentacia.get('/o-nas', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    return templates.TemplateResponse("o-nas.html", {"request": request})
+
+
+@router_prezentacia.get('/kategorie', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    return templates.TemplateResponse("kategorie.html", {"request": request})
+
+
 @router_prezentacia.get("/zlavy", response_class=HTMLResponse)
 async def zlavy_view(request: Request):
     return templates.TemplateResponse("zlavy.html", {"request": request})

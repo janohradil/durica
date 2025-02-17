@@ -525,3 +525,127 @@ ul {
     max-width: 380px;
     margin: auto;
 }
+
+/* Modal styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    /* Maximum width of modal */
+    text-align: center;
+    /* Center text */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Consent Button */
+.consent-button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Floating phone button styles */
+.floating-phone-button {
+    position: fixed;
+    /* Fixed position */
+    bottom: 2rem;
+    /* Distance from the bottom */
+    right: 2rem;
+    /* Distance from the right */
+    background-color: #044d04;
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* No border */
+    border-radius: 50%;
+    /* Circular button */
+    width: 60px;
+    /* Width of the button */
+    height: 60px;
+    /* Height of the button */
+    display: flex;
+    /* Use flexbox to center icon */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow for depth */
+    transition: background-color 0.3s;
+    /* Smooth background color transition */
+    text-decoration: none;
+    /* Remove underline from link */
+    z-index: 1000;
+    /* Ensure it's on top */
+}
+
+/* Change background color on hover */
+.floating-phone-button:hover {
+    background-color: rgb(12, 100, 12, 0.5);
+    /* Darker blue on hover */
+}
+
+/* Icon styles (using Font Awesome for the phone icon) */
+.phone-icon {
+    font-size: 24px;
+    /* Size of the icon */
+}
+
+/* .gdpr-suhlas {
+    display: flex;
+} */
+
+#send-form {
+    display: block;
+    margin: auto;
+}

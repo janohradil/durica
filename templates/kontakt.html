@@ -25,9 +25,13 @@
             <textarea class="form-control" id="message" rows="3" placeholder="Tu napíš svoju správu." name="message"
                 required></textarea>
         </div>
-
-        <button type="button" class="btn btn-success" hx-post="/kontakt" hx-trigger="click" hx-target="#form-container"
-            hx-swap="innerHTML">Odoslať</button>
+        <div class="mb-3 gdpr-suhlas">
+            <input type="checkbox" id="gdpr-suhlas" name="gdpr-suhlas" value="gdpr-suhlas-ano" />
+            <label for="gdpr-suhlas">Súhlasím so spracovaním mojich osobných údajov pre účely nevyhnutného spracovania
+                dát za účelom spätného kontaktu / objednávky. </label>
+        </div>
+        <button type="button" id="send-form" class="btn btn-success" hx-post="/kontakt" hx-trigger="click"
+            hx-target="#form-container" hx-swap="innerHTML">Odoslať</button>
     </div>
 </form>
 

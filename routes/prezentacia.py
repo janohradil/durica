@@ -87,6 +87,9 @@ async def info_o_vyrobe(request: Request):
 async def info_o_vyrobe(request: Request):
     return templates.TemplateResponse("kategorie.html", {"request": request})
 
+@router_prezentacia.get('/kategorie/celorocne', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    return templates.TemplateResponse("kategorie_celorocne.html", {"request": request})
 
 @router_prezentacia.get("/zlavy", response_class=HTMLResponse)
 async def zlavy_view(request: Request):

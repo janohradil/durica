@@ -649,3 +649,17 @@ ul {
     display: block;
     margin: auto;
 }
+
+.dropdown-menu {
+    background-color: #222422;
+}
+
+.dropdown-menu a {
+    color: #ccc;
+}
+
+.navbar .dropdown-menu a:hover {
+    color: #e4ffdf;
+    background-color: #044d04;
+    transition: 300ms;
+}

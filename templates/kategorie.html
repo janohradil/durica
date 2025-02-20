@@ -1,25 +1,39 @@
 {% extends "base.html" %}
 
-{% block content %}<p>Na tejto stránke sa pracuje.</p>
+<!-- {% import "macros/macros.html" as macros %} -->
 
-<div class="celerocne">
-    <h2>Ukážka celoročných dekoračných nápisov</h2>
-    <p>rozpracované</p>
-</div>
+{% block content %}
 
-<div class="spomienkove">
-    <h2>Ukážka spomienkových dekoračných nápisov</h2>
-    <p>rozpracované</p>
-</div>
+<p>Na tejto stránke sa pracuje.</p>
 
-<div class="vianocne">
-    <h2>Ukážka vianočných dekoračných nápisov</h2>
-    <p>rozpracované</p>
-</div>
-
-<div class="vianocne">
-    <h2>Ukážka zo špeciálnej ponuky</h2>
-    <p>rozpracované</p>
-</div>
-
+<main class="text-center">
+    <div class="row">
+        <div class="vyrobky">
+            <h1>Vladimír Ďurica – <span id="brand-color">3</span>D DEKOR</h1>
+            <h2>výroba dekoračných nápisov na aranžovanie</h2>
+            <div class="loga">
+                <a id="hlavne-logo" href="/">
+                    <img src="{{ url_for ('static', path='img/logo_vd.svg') }}" alt="Logo Vladimír Ďurica – 3D DEKOR"
+                        title="Logo Vladimír Ďurica – 3D DEKOR" class="logo">
+                </a>
+            </div>
+            {% for kod_skupina in kodove_skupiny %}
+            <h2>{{ kodove_skupiny[kod_skupina] }}: </h2>
+            <div class="tabulka-vyrobkov">
+                {{ macros.produkty_tabulka(produkty, kod_skupina) }}
+            </div>
+            <button class="btn btn-success mt-4" id="{{kod_skupina}}" hx-get="/zlavy" hx-swap="outerHTML">Bližšie
+                informácie o farbách, veľkostiach a zľavách</button>
+            {% endfor %}
+            <br>
+            <br>
+            <div class="card">
+                <p>Objednávky formou emailu poslať na <a
+                        href="mailto:duri.ca.vlado@gmail.com">duri.ca.vlado@gmail.com</a>
+                </p>
+                <p>Uveďte: kód produktu, počet kusov, farbu, vaše kontaktné údaje</p>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

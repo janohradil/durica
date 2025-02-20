@@ -89,7 +89,49 @@ async def info_o_vyrobe(request: Request):
 
 @router_prezentacia.get('/kategorie/celorocne', response_class=HTMLResponse)
 async def info_o_vyrobe(request: Request):
-    return templates.TemplateResponse("kategorie_celorocne.html", {"request": request})
+    produkty = nacitaj_vsetky_produkty('utils/produkty.csv')
+    kod_skupiny = kodove_skupiny(produkty)
+    kod_skupiny = {s:k for s, k in kod_skupiny.items() if 'cl' in s}
+    print(kod_skupiny)
+    return templates.TemplateResponse("kategorie.html", {"request": request,
+                                                                   "produkty": produkty,
+                                                                   "kodove_skupiny": kod_skupiny
+                                                                   })
+
+@router_prezentacia.get('/kategorie/spomienkove', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    produkty = nacitaj_vsetky_produkty('utils/produkty.csv')
+    kod_skupiny = kodove_skupiny(produkty)
+    kod_skupiny = {s:k for s, k in kod_skupiny.items() if 'vd' in s}
+    print(kod_skupiny)
+    return templates.TemplateResponse("kategorie.html", {"request": request,
+                                                                   "produkty": produkty,
+                                                                   "kodove_skupiny": kod_skupiny
+                                                                   })
+
+@router_prezentacia.get('/kategorie/vianocne', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    produkty = nacitaj_vsetky_produkty('utils/produkty.csv')
+    kod_skupiny = kodove_skupiny(produkty)
+    kod_skupiny = {s:k for s, k in kod_skupiny.items() if 'vn' in s}
+    print(kod_skupiny)
+    return templates.TemplateResponse("kategorie.html", {"request": request,
+                                                                   "produkty": produkty,
+                                                                   "kodove_skupiny": kod_skupiny
+                                                                   })
+
+
+@router_prezentacia.get('/kategorie/specialne', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    produkty = nacitaj_vsetky_produkty('utils/produkty.csv')
+    kod_skupiny = kodove_skupiny(produkty)
+    kod_skupiny = {s:k for s, k in kod_skupiny.items() if 'vn' in s}
+    print(kod_skupiny)
+    return templates.TemplateResponse("kategorie_specialne.html", {"request": request,
+                                                                   "produkty": produkty,
+                                                                   "kodove_skupiny": kod_skupiny
+                                                                   })
+
 
 @router_prezentacia.get("/zlavy", response_class=HTMLResponse)
 async def zlavy_view(request: Request):

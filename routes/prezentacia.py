@@ -199,9 +199,13 @@ async def contact_view(request: Request, current_year: dict = Depends(get_year))
     return templates.TemplateResponse("kontakt.html", {"request": request, **current_year})
 
 @router_prezentacia.post("/kontakt")
-async def kontakt(fname: str = Form(...), lname: str = Form(...), phone: str = Form(...), email: str = Form(...), message: str = Form(...)):
+async def kontakt(fname: str = Form(...), lname: str = Form(...), firma: str = Form(...), ico: int = Form(...), dic: int = Form(...), p_dic: str = Form(...), phone: str = Form(...), email: str = Form(...), message: str = Form(...)):
     db.odpovede.insert_one({"fname": fname, 
                             "lname": lname, 
+                            "firma": firma, 
+                            "ico": ico, 
+                            "dic": dic, 
+                            "p_dic": p_dic, 
                             "phone": phone, 
                             "email": email, 
                             "message": message, 

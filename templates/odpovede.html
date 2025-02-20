@@ -6,8 +6,14 @@
     {% for odpoved in odpovede %}
     <li class="card py-4 px-4">
         <p>{{ odpoved.fname }} {{ odpoved.lname }} - {{ odpoved.email }} - {{ odpoved.phone }}</p>
-        <p>{{ odpoved.message|trim }}</p>
-        <p>{{ odpoved.date|trim }}</p>
+        {% if odpoved.firma %}
+        <p>Názov firmy: {{ odpoved.firma }}</p>
+        <p>IČO firmy: {{ odpoved.ico }}</p>
+        <p>DIČ firmy: {{ odpoved.dic }}</p>
+        <p>Platca DPH: {{ odpoved.p_dic }}</p>
+        {% endif %}
+        <p>Správa: {{ odpoved.message|trim }}</p>
+        <p>Dátum a čas: {{ odpoved.date|trim }}</p>
     </li>
     {% endfor %}
 </ul>

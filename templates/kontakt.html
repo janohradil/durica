@@ -5,8 +5,12 @@
 <form class="form_inputs">
     <div id="form-container">
         <div class="mb-3">
-            <label for="fname" class="form-label">Meno</label>
+            <label for="fname" class="form-label">Meno <span class="povinne">*</span></label>
             <input type="text" id="fname" class="form-control" placeholder="Jozef" name="fname" required>
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Priezvisko <span class="povinne">*</span></label>
+            <input type="text" id="lname" class="form-control" placeholder="Mrkvička" name="lname" required>
         </div>
         <div class="mb-3">
             <label for="firma" class="form-label">Názov firmy</label>
@@ -25,15 +29,11 @@
             <input type="text" id="p_dic" class="form-control" placeholder="neplatca" name="p_dic">
         </div>
         <div class="mb-3">
-            <label for="lname" class="form-label">Priezvisko</label>
-            <input type="text" id="lname" class="form-control" placeholder="Mrkvička" name="lname" required>
-        </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Telefónne číslo</label>
+            <label for="phone" class="form-label">Telefónne číslo <span class="povinne">*</span></label>
             <input type="text" id="phone" class="form-control" placeholder="0912 345 678" name="phone" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email <span class="povinne">*</span></label>
             <input type="email" id="email" class="form-control" placeholder="mrkvicka@gmail.com" name="email" required>
         </div>
         <div class="mb-3">

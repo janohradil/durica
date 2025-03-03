@@ -25,6 +25,7 @@ def get_color_name(color_code: str):
         fialová = 'fia'
         zelená  = 'zel'
         ružová  = 'ruz'
+        červená  = 'cer'
 
     try:
         return Color(color_code)

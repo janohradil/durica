@@ -34,10 +34,23 @@ async def posli_odpoved(request: Request):
     data = await request.form()
     fname = data.get("fname")
     lname = data.get("lname")
+    comp_name = data.get("comp_name")
+    ico =  data.get("ico")
+    dic = data.get("dic")
+    platca_dph = data.get("platca_dph")
     email = data.get("email")
     phone = data.get("phone")
     message = data.get("message")
-    odpoved = Odpoved(fname=fname, lname=lname, phone=phone, email=email, message=message, date=date.today())
+    odpoved = Odpoved(fname=fname, 
+                      lname=lname, 
+                      comp_name=comp_name,
+                      ico=ico,
+                      dic=dic,
+                      platca_dph=platca_dph,
+                      phone=phone, 
+                      email=email, 
+                      message=message, 
+                      date=date.today())
     odpoved_id = collection_name.insert_one(odpoved.model_dump())
     return {"id": str(odpoved_id.inserted_id)}
 

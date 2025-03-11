@@ -10,6 +10,7 @@ from config.database import client, db, collection_name
 from schema.schemas import list_serial, individual_serial_odpoved, individual_serial_portfolio
 from datetime import datetime
 from utils.functions import get_year, get_image_colors, slugify, nacitaj_vsetky_produkty, kodove_skupiny
+from utils.email import send_email
 
 router_prezentacia = APIRouter(tags=["prezentacia"])
 
@@ -212,6 +213,10 @@ async def kontakt(fname: str = Form(...), lname: str = Form(...), firma: str = F
                             "date": datetime.now()
                             })
     response_content = f"<p>Ďakujem veľmi pekne {fname} {lname} za zanechanie správy! Vaša správa \"{message}\" bola zaznamenaná.</p><p>telefónne číso: {phone}</p><p>email: {email}</p>"
+    try:
+        send_email(subject=f"{fname} {lname}", body=f"Meno: {fname} {lname} \nFirma: {firma} IČO: {ico} DIČ: {dic} Platca DPH: {p_dic} \nemail: {email} telefón: {phone} \nspráva: {message}", recipient_email='duri.ca.vlado@gmail.com')
+    except Exception as e:
+        print("error", e)
     return HTMLResponse(content=response_content)
 
 

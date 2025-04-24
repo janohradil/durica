@@ -95,7 +95,8 @@ def produkty_slovnik(produkty: list[Produkt]) -> dict[str, Produkt]:
 def kodove_skupiny(produkty: dict[str, Produkt]) -> dict[str, str]:
     return dict(cl = "Celoročné dekoračné nápisy",
                 vd = "Spomienkové dekoračné nápisy",
-                vn = "Vianočné dekoračné nápisy")
+                vn = "Vianočné dekoračné nápisy",
+                hu = "Maďarské dekoračné nápisy")
 
 
 def nacitaj_vsetky_produkty(subor: str = 'produkty.csv') -> list[Produkt]:

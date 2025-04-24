@@ -133,6 +133,16 @@ async def info_o_vyrobe(request: Request):
                                                                    "kodove_skupiny": kod_skupiny
                                                                    })
 
+@router_prezentacia.get('/kategorie/madarske', response_class=HTMLResponse)
+async def info_o_vyrobe(request: Request):
+    produkty = nacitaj_vsetky_produkty('utils/produkty.csv')
+    kod_skupiny = kodove_skupiny(produkty)
+    kod_skupiny = {s:k for s, k in kod_skupiny.items() if 'hu' in s}
+    print(kod_skupiny)
+    return templates.TemplateResponse("kategorie.html", {"request": request,
+                                                                   "produkty": produkty,
+                                                                   "kodove_skupiny": kod_skupiny
+                                                                   })
 
 @router_prezentacia.get("/zlavy", response_class=HTMLResponse)
 async def zlavy_view(request: Request):
